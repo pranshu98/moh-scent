@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900 bg-white dark:bg-gray-900 dark:text-gray-100;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply text-white bg-primary-600 hover:bg-primary-700 focus:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply text-primary-700 bg-primary-100 hover:bg-primary-200 focus:ring-primary-500;
+  }
+
+  .input {
+    @apply block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm dark:bg-gray-800 dark:border-gray-700;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300;
+  }
+
+  .card {
+    @apply overflow-hidden bg-white rounded-lg shadow dark:bg-gray-800;
+  }
+
+  .card-hover {
+    @apply transition duration-300 transform hover:scale-105 hover:shadow-lg;
+  }
+}
+
+/* Custom animations */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-out;
+}
+
+/* Scroll animations */
+.scroll-trigger {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-trigger.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Product card hover effects */
+.product-card {
+  @apply relative overflow-hidden;
+}
+
+.product-card-overlay {
+  @apply absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 transition-all duration-300 opacity-0;
+}
+
+.product-card:hover .product-card-overlay {
+  @apply bg-opacity-40 opacity-100;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-600;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply w-8 h-8 border-4 border-primary-200 rounded-full animate-spin;
+}
+
+.spinner-light {
+  @apply border-t-primary-600;
+}
+
+.spinner-dark {
+  @apply border-t-primary-400;
+}
+
+/* Toast notifications */
+.toast {
+  @apply fixed bottom-4 right-4 z-50 p-4 rounded-lg shadow-lg;
+}
+
+.toast-success {
+  @apply bg-green-500 text-white;
+}
+
+.toast-error {
+  @apply bg-red-500 text-white;
+}
+
+/* Image gallery */
+.gallery-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+.gallery-item {
+  @apply aspect-w-1 aspect-h-1 relative overflow-hidden rounded-lg;
+}
+
+/* Form styles */
+.form-group {
+  @apply space-y-1 mb-4;
+}
+
+.form-error {
+  @apply text-sm text-red-600 dark:text-red-400;
+}
+
+/* Navigation menu */
+.nav-link {
+  @apply px-3 py-2 rounded-md text-sm font-medium;
+}
+
+.nav-link-active {
+  @apply bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-100;
+}
+
+/* Dark mode transitions */
+.dark-transition {
+  @apply transition-colors duration-200;
+}
+
+/* Responsive container */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
